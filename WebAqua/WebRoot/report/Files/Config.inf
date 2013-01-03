@@ -1,0 +1,191 @@
+[CONTROL]
+;image서버의 경로 
+;ImageHome=http://www.my-builder.co.kr/server/image
+;클라이언트에 이미지를 캐쉬 하는 ...
+CacheImage=1 
+;Run=magic;매직 관련 
+;적용언어(korean, english, japanese...)
+;language=english
+;입력시 한글모드 적용 (1=한글적용)
+HangulMode=1
+;오른쪽마우스의 메뉴 기능을 감춤
+;RButtonMenu=0 
+;리포트 미리보기 화면에서 <메일> 버튼 제거
+;Mail=0
+;리포트 미리보기 화면에서 <엑셀> 버튼 제거및 우측버튼의 엑셀 보내기 버튼 제거		
+;Excel=0		
+;우측버튼 'xml 로 저장하기' 제거
+;XML=0
+;edit date의 달력 (1=월요일)부터
+;CalendarMode=1 
+
+;MyForm.inf의 스크립트를 암호화 해서 저장한다.
+EncodeScript=1
+Encode=1
+
+;Home Directory (default:V:)
+HomeDir=http://221.148.242.7/report/Files
+;HomeDir=http://kt68aqua.magicn.com/report/Files
+;HomeDir=http://localhost:8080/report/file
+ 
+
+;Load Form (default:0=Client 1=Client+Server 2=Server 3=Server+Delete)
+LoadMode=3
+
+;이미지 표시여부(default:1=Yes, 0=No)
+ShowImage=1
+
+;자동 한글모드(default:0=No, 1=Yes)
+AutoMode=1 
+
+;메시지 읽기 시간(default:1 min)
+;MsgTime=1
+
+;PlugIn(default:PlugIn)
+;PlugIn=PlugIn
+
+;Dump script(1일경우 homedir\work\download 생성 ctrl+q,t 사용가능)
+Dump=1
+
+[Database] 
+
+;0=ORACLE;ado;Provider=OraOLEDB.Oracle.1;Password=aqua1234;Persist Security Info=True;User ID=aquauser02;Data Source=AQUAORA_test
+0=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=221.148.242.7/report/Biin/oracle.jsp?type=1
+1=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=221.148.242.7/report/Biin/oracle.jsp?type=0
+2=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=221.148.242.7/report/Biin/oracle.jsp?type=2
+
+;0=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=kt68aqua.magicn.com/report/Biin/oracle.jsp?type=1
+;1=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=kt68aqua.magicn.com/report/Biin/oracle.jsp?type=0
+;2=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=kt68aqua.magicn.com/report/Biin/oracle.jsp?type=2
+	
+;0=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=localhost:8080/report/Biin/oracle.jsp?type=1
+;1=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=localhost:8080/report/Biin/oracle.jsp?type=0
+;2=ORACLE;HTTP;VERB=POST;TYPE=TSV;URL=localhost:8080/report/Biin/oracle.jsp?type=2
+
+[COLOR]
+;MAIN:main SUB:sub CODE:code
+;Xn:1.Edit 2.View 3.Title 4.Line 5.Select 6.TitleText 7.CodeText 8.Alt1 9.Alt2 0.Alt3
+
+MAIN=E
+SUB=C
+CODE=D
+
+A=Black&White
+A1=5
+A2=15
+A3=15
+A4=#808080
+A5=#ffffc0
+A6=#000000
+A7=#000000
+A8=#e0e0e0
+A9=#d0d0d0
+A0=#c0c0c0
+
+B=Green
+B1=255,255,240
+B2=232,248,216
+B3=224,255,248
+B4=128,184,88
+B5=255,255,192
+B6=0,0,0
+B7=0,0,128
+B8=247,246,218
+B9=230,244,190
+B0=207,242,184
+
+C=Brown
+C1=#fdf5e6
+C2=#fcefdb
+C3=#eecfa1
+C4=#cdb38b
+C5=#ffffc0
+C6=#8b4513
+C7=#000080
+C8=#ffdead
+C9=#ffd39b
+C0=#eec591
+
+D=Magenta
+D1=#fffff0
+D2=#fff0f5
+D3=#eed2ee
+D4=#cd9b9b
+D5=#ffffc0
+D6=#8b1c62
+D7=#000080
+D8=#ffe1ff
+D9=#eeaeee
+D0=#d8bfd8
+
+E=Blue
+E1=255,255,255
+E2=236,244,255
+E3=202,202,255
+E4=131,157,190
+E5=255,255,192
+E6=0,0,0
+E7=0,0,0
+E8=227,225,251
+E9=233,234,254
+E0=253,234,223
+
+F=DarkGreen
+F1=#fffff0
+F2=#fdfce6
+F3=#b7cd8d
+F4=#dfdfdf
+F5=#ffffc0
+F6=#003955
+F7=#000080
+F8=#faf0e6
+F9=#f5f5dc
+F0=#f5fffa
+
+G=LightGray
+G1=255,255,255
+G2=244,241,236
+G3=221,211,192
+G4=223,223,223
+G5=255,255,192
+G6=0,60,9
+G7=0,0,128
+G8=250,250,229
+G9=247,246,218
+G0=236,246,207
+
+H=LightPink
+H1=255,255,255
+H2=250,250,240
+H3=255,209,208
+H4=223,223,223
+H5=255,255,192
+H6=0,0,66
+H7=0,0,128
+H8=255,245,236
+H9=254,234,235
+H0=253,223,234
+
+I=Orange
+I1=255,255,255
+I2=255,244,226
+I3=255,208,162
+I4=223,223,223
+I5=255,255,192
+I6=0,0,66
+I7=0,0,128
+I8=251,250,210
+I9=255,236,217
+I0=253,225,220
+
+J=Cobalt
+J1=255,255,255
+J2=239,251,232
+J3=183,221,203
+J4=223,223,223
+J5=255,255,192
+J6=0,0,82
+J7=0,0,128
+J8=247,243,230
+J9=228,236,221
+J0=239,250,244

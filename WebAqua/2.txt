@@ -1,0 +1,26 @@
+set query1 = "
+	select 
+		date_fld
+		,con_try_cnt
+		,suc_cnt
+		,(suc_cnt/decode(con_try_cnt,0,null,con_try_cnt))*100 suc_rate
+	from (
+	select
+		  data_dev_nm date_fld
+		, sum(con_try_cnt) con_try_cnt
+		, sum(suc_cnt) suc_cnt		
+			from &tb_nm
+			where 
+			  &where_date_fld
+			  data_dev = 4
+			  and plf_dev = :data_plf
+			  &cdma
+			  &svc_dev
+			  &o_svc_dev
+			  &svc_dev1
+			  &data_dev_val
+			  &url_val
+			group by data_dev_nm
+			order by con_try_cnt desc		
+		)
+" when data_cate >0;

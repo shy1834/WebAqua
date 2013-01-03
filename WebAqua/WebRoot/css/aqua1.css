@@ -1,0 +1,358 @@
+body {
+	margin: 0px;
+	/*background-image: url(../images/common/bg.gif);	
+	background-repeat: repeat-x;
+	background-color: #ffffff;*/
+	scrollbar-face-color: #ebebeb;	
+	scrollbar-highlight-color: #ffffff;	
+	scrollbar-3dlight-color: #b4b4b4;	
+	scrollbar-shadow-color: #b4b4b4;
+	scrollbar-darkshadow-color: #dcdcdc;	
+	scrollbar-track-color: #dcdcdc;	
+	scrollbar-arrow-color: #565656; }
+	
+image {	
+	border: solid 0px ;}
+td { font-family: "dotum"; 
+	font-size:9pt; 
+	color: #464646; 
+	line-height: 140%; 
+	letter-spacing:-0.04em;}
+
+A:LINK,	A:VISITED, A:ACTIVE {	
+	color: #464646; 
+	font-weight:none; 
+	text-decoration:none;	
+	font-style: none ;	
+	line-height: 120%; 	}
+A:HOVER {	
+	color: #ff0000; 
+	font-weight:none; 
+	text-decoration:none; 
+	font-style: none; 
+	line-height: 120%;  }
+
+
+
+
+	
+/*login페이지 구성 */
+.loginBg {
+	background-image: url(../images/login/bg.gif);
+	background-repeat: repeat-x;	
+	vertical-align:top;
+	background-color:#d7d7d7; }
+.loginGuide {
+	height:410px;
+	vertical-align:top;
+	background-image:url(../images/login/loginBG.jpg); 
+	background-repeat:no-repeat; 
+	padding-top:275px;
+	padding-left:220px;
+	padding-right:170px;}
+.tf_default { 
+	padding-left:4px;
+	font-size: 9pt; 	
+	color: #333333;	background-color: #ffffff; 
+	border-bottom: solid 1px #d9d9d9;	
+	border-right: solid 1px #d9d9d9;		
+	border-left: solid 1px #979797;	
+	border-top: solid 1px #979797;
+	height:20px;
+}	
+	
+/* 메인페이지 구성 */
+a.mainboard:link, a.mainboard:visited, a.mainboard:active {
+	font-size:8pt;
+	color:#464646;
+	letter-spacing:-0.05em;
+	text-decoration:none; }
+a.mainboard:hover {
+	font-size:8pt;
+	color:#ff0000;
+	letter-spacing:-0.05em;}	
+.mainBg {
+	background-image: url(../images/main/bg.gif);
+	background-repeat: repeat-x;	
+	vertical-align:top;}
+.txt_name { 	
+	color:#2694da;	
+	font-size:9pt;	
+	font-weight:bold; }
+.main_blit {
+	font-size:8pt; 	
+	color:#9f8543;	
+	text-decoration:none;
+	background-image: url(../images/main/blit.gif);
+	background-repeat: no-repeat;
+	padding-left:12px;	
+	padding-top:2px;	
+	height:25px; }
+.main_underline {
+	background-image: url(../images/main/underline.gif);
+	background-repeat: repeat-x;	
+	height:1px; }
+
+/* 검색box에 사용된 div*/
+div,ul,li,{padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px}
+ul,ol,li {list-style-position:outside; list-style-type:none;}
+
+.fotCnt {float:left; }
+.fotCnt .fotMainMn {float:left;}
+.fotCnt .fotMainMn li {float:left; width:285px; padding:0; margin-top:3; border-bottom:solid 1px #f2f2f2;}
+
+.search_guide {
+	border-right:solid 3px #272727; 
+	border-bottom:solid 3px #272727; 
+	border-left:solid 3px #272727; 
+	padding: 10px 0px 10px 20px;}
+.search_guide01 {
+	height:35px;
+	background-color:#b8dcea;
+	border-right:solid 3px #272727; 
+	border-bottom:solid 3px #272727; 
+	border-left:solid 3px #272727; 
+	padding: 10px 20px 10px 20px;}
+.sub_blit {
+	font-size:9pt; 	
+	color:#525252;	
+	text-decoration:none;
+	font-weight:bold;	
+	letter-spacing:-0.05em;
+	background-image: url(../images/common/blit.gif);
+	background-repeat: no-repeat;
+	padding-left:12px;	
+	padding-top:4px;
+	padding-right:10px;
+	padding-bottom:3px;}
+.sub_none {
+	font-size:8pt; 	
+	color:#525252;	
+	text-decoration:none;
+	letter-spacing:-0.05em;
+	/*background-image: url(../images/main/blit.gif);
+	background-repeat: no-repeat;*/
+	padding-left:0px;	
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:0px;}
+	
+	
+	
+/* 템플릿 구성에 사용 */
+a.menu:link, a.menu:visited, a.menu:active {
+	font-size:9pt;
+	letter-spacing:-0.07em;
+	color: #ffffff;	
+	font-weight: bold;
+	text-decoration:none;}
+a.menu:hover {
+	font-size:9pt;
+	letter-spacing:-0.07em;
+	color: #ffd200;	
+	font-weight: bold;
+	text-decoration:none;}
+a.Fmenu:link, a.Fmenu:visited, a.Fmenu:active {
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #ffffff;	
+	font-weight: bold;
+	text-decoration:none;}
+a.Fmenu:hover {
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #333333;	
+	font-weight: bold;
+	text-decoration:none;}
+.menu_guide {
+	height:43px;
+	background-image:url(../images/main/naviBg.gif);
+	background-repeat:no-repeat; 
+	padding-left:35px;}
+.bt_guide {
+	text-align:right;
+	padding: 10px 5px 5px 5px;}
+.graph_guide {
+	padding:10px; 
+	border:solid 15px #f2f2f2;}
+.add_bg {
+	padding-right:10px; 
+	text-align:right;	
+	color:#747474;	
+	font-size:8pt;	
+	letter-spacing:-0.04em; }
+.add_sel {
+	color:#44b0dd;	
+	font-size:8pt;	
+	font-weight:bold;	
+	letter-spacing:-0.04em; }
+.title {
+	height:35px; 
+	background-image:url(../images/common/CboxtopBg.gif); 
+	background-repeat:no-repeat; 
+	padding-left:35px;
+	color:#ffffff;
+	font-size:11pt;
+	letter-spacing:-0.1em;
+	font-weight:bold;}
+.title01 {
+	height:35px; 
+	background-image:url(../images/common/CboxtopBg01.gif); 
+	background-repeat:no-repeat; 
+	padding-left:35px;
+	color:#ffffff;
+	font-size:11pt;
+	letter-spacing:-0.1em;
+	font-weight:bold;}
+
+
+/* form에 사용*/
+.tf_none { 
+	font-size: 9pt; 	
+	color: #333333;	background-color: #f2f2f2; 
+	border-bottom: solid 1px #d9d9d9;	
+	border-right: solid 1px #d9d9d9;		
+	border-left: solid 1px #979797;	
+	border-top: solid 1px #979797;
+	height:20px;
+}
+
+
+/* 게시판에 사용된css */
+a.txt_tap:link, a.txt_tap:visited, a.txt_tap:active {
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #c50a0a;	
+	font-weight: bold;
+	text-decoration:none;}
+a.txt_tap:hover {
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #c50a0a;	
+	font-weight: bold;
+	text-decoration:underline;}
+.Tbg { 
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #505050;	
+	font-weight: bold;
+	height: 28px;	
+	background-color: #dfebf0; 
+	border-bottom: solid 1px #999999;	
+	border-right: solid 1px #999999;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+	text-align:center;
+}
+.Tbg_n { 
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #c50a0a;	
+	font-weight: bold;
+	height: 28px;	
+	background-color: #d3dde6; 
+	border-bottom: solid 1px #999999;	
+	border-right: solid 1px #999999;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+	text-align:center;
+}
+.Lbg { 
+	font-size:8pt;
+	letter-spacing:-0.05em;
+	color: #505050;	
+	font-weight: bold;
+	padding: 5px 5px 5px 12px;
+	background-color: #dfebf0; 
+	border-bottom: solid 1px #999999;	
+	border-right: solid 1px #999999;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+}
+.Cbg { 
+	font-size:8pt;
+	font-weight:none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color: #ffffff;
+	border-bottom: solid 1px #dbdbdb;	
+	border-right: solid 1px #dbdbdb;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+	line-height:120%;
+}
+.Cbg_n { 
+	font-size:8pt;
+	font-weight:none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color: #fcf6eb;
+	border-bottom: solid 1px #dbdbdb;	
+	border-right: solid 1px #dbdbdb;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+	line-height:120%;
+}
+.Cbg_g { 
+	font-size:8pt;
+	font-weight:none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color: #f2f2f2;
+	border-bottom: solid 1px #dbdbdb;	
+	border-right: solid 1px #dbdbdb;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 0px #ffffff;
+	line-height:120%;
+}
+.Cbg_b { 
+	font-size:8pt;
+	font-weight:none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color: #e6d3d4;
+	border-bottom: solid 0px #999999;	
+	border-right: solid 1px #999999;
+	border-left: solid 0px #ffffff;	
+	border-top: solid 1px #999999;
+	line-height:120%;
+}
+a.page:link, a.page:visited, a.page:active {
+	font-size:10pt;
+	letter-spacing:-0.07em;
+	color: #707070;	
+	font-weight: bold;
+	text-decoration:none;
+	padding:5px;}
+a.page:hover {
+	font-size:10pt;
+	letter-spacing:-0.07em;
+	color: #ff0000;	
+	font-weight: bold;
+	text-decoration:none;
+	padding:5px;}
+.page_sel {
+	font-size:12pt;
+	letter-spacing:-0.07em;
+	color: #ff0000;	
+	font-weight: bold;
+	text-decoration:none;
+	padding:5px;}
+.searchBox {
+	border:solid 5px #eaeaea;
+	padding:10px; }
+.txt_st { 	
+	color:#a4a4a4;	
+	font-size:8pt;	
+	letter-spacing:-0.07em;
+	font-weight:bold; 
+	padding-top:5px;
+	padding-right:10px;}

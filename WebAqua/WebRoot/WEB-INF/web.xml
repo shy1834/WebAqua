@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<web-app version="2.4"> 
+  <display-name>AQUA Application Config</display-name>
+  <!-- Standard Action Servlet Configuration (with debugging) --> 
+  <!--
+  <filter>
+    <filter-name>Set Character Encoding</filter-name>
+    <filter-class>com.ktf.aqua.framework.filter.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>euc-kr</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Set Character Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> 
+ -->
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <!--servlet-class>org.apache.struts.action.ActionServlet</servlet-class-->
+	<!-- reload ¸¦ À§ÇØ MyAppServlet ´ëÃ³ÇÔ. -->
+	<servlet-class>com.edsk.framework.servlet.MyAppServlet</servlet-class>
+    <init-param>
+	  <param-name>trimSpaces</param-name>
+	  <param-value>true</param-value>
+	</init-param>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <!-- module configurations -->
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>0</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <!-- Standard Action Servlet Mapping -->
+  <servlet-mapping> 
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- The Usual Welcome File List -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+	<!--welcome-file>/welcome.do?cmd=welcome</welcome-file-->
+  </welcome-file-list>
+  
+
+
+  <!-- =============================================== -->
+   <!--Custom Tag Libraries -->
+   <!-- =============================================== -->
+   <taglib>
+      <taglib-uri>/i18nTaglib</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/i18n.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/a2b_core</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/a2b_core.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/a2b_html</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/a2b_html.tld</taglib-location>
+   </taglib>
+
+  <!-- =============================================== -->
+   <!-- log4j Tag Library Descriptors                  -->
+   <!-- =============================================== -->
+   <taglib>
+	 <taglib-uri>/taglibs-log</taglib-uri>
+	 <taglib-location>/WEB-INF/tlds/taglibs-log.tld</taglib-location>
+   </taglib>
+
+  <!-- =============================================== -->
+   <!-- Struts Tag Library Descriptors                  -->
+   <!-- =============================================== -->
+   <taglib>
+      <taglib-uri>/struts-tiles</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-tiles.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/struts-bean</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-bean.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/struts-html</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-html.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/struts-logic</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-logic.tld</taglib-location>
+   </taglib> 
+     <!-- =============================================== -->
+   <!-- ISS Tag Library Descriptors                  -->
+   <!-- =============================================== -->
+   <taglib>
+		<taglib-uri>/ISSTags</taglib-uri>
+		<taglib-location>/WEB-INF/iss-sttdto.tld</taglib-location>
+	</taglib>
+	<taglib>
+      <taglib-uri>/iss-struts-tiles</taglib-uri>
+      <taglib-location>/WEB-INF/struts-tiles.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/iss-struts-bean</taglib-uri>
+      <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/iss-struts-html</taglib-uri>
+      <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+   </taglib>
+   <taglib>
+      <taglib-uri>/iss-struts-logic</taglib-uri>
+      <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+   </taglib>
+	<taglib>
+  		<taglib-uri>http://jakarta.apache.org/taglibs/i18n-1.0</taglib-uri> 
+  		<taglib-location>/WEB-INF/taglibs-i18n.tld</taglib-location> 
+	</taglib>
+	
+	<resource-ref>
+	 <description>Oracle Datasource</description>
+	 <res-ref-name>jdbc/AQUADataSource</res-ref-name>
+	 <res-type>javax.sql.DataSource</res-type>
+	 <res-auth>Container</res-auth>
+	</resource-ref>
+	
+	<security-constraint>
+      
+  	<web-resource-collection>
+  		<web-resource-name>PreventViewing PDFs</web-resource-name>
+  		<description>Prevent direct access fron pdf</description>
+		<url-pattern>*.pdf</url-pattern>
+		<http-method>GET</http-method>
+		<http-method>POST</http-method>
+	</web-resource-collection>
+	<auth-constraint>
+		<role-name>nobody</role-name>
+	</auth-constraint>
+   </security-constraint>
+   
+  <error-page>
+	  <error-code>400</error-code>
+  <location>/webError500.do</location>
+  </error-page>
+  <error-page>
+	  <error-code>404</error-code>
+  <location>/webError404.do</location>
+  </error-page>
+  <error-page>
+  <error-code>500</error-code>
+  	<location>/webError500.do</location>
+  </error-page>
+  <error-page>
+      <exception-type>java.lang.Exception</exception-type>
+      <location>/webError500.do</location>
+  </error-page>  
+  
+  <session-config>
+  	<session-timeout>600000000</session-timeout>
+  </session-config>
+  
+</web-app>

@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<form-validation>
+   <formset>
+        <form name="LogonForm">
+
+            <field property="user_id"
+                    depends="required, minlength,maxlength">
+                <arg0   key="login.user_id"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+            </field>
+
+            <field property="user_pwd"
+                    depends="required, minlength,maxlength"
+                    >
+                <arg0   key="login.user_pwd"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+            </field>
+
+        </form>
+
+        <form name="PageSearchForm">
+            <field property="page_nm"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="statistics.page_nm"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="table_name"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="statistics.table_name"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>30</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="PageCreateForm">
+            <field property="page_nm"
+                    depends="required, minlength,maxlength"
+                    >
+                <arg0   key="statistics.page_nm"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="stat_tp"
+                    depends="required"
+                    >
+                <arg0   key="statistics.stat_tp"/>
+            </field>
+
+            <field property="dt_tp"
+                    depends="required"
+                    >
+                <arg0   key="statistics.stat_tp"/>
+            </field>
+        </form>
+        
+        <form name="StatisticsForm">
+            <field property="dt_tp"
+                    depends="required"
+                    >
+                <arg0   key="statistics.dt_tp"/>
+            </field>
+        </form>
+
+        <form name="MenuItemForm">
+
+            <field property="menu_item_nm"
+                    depends="required, minlength,maxlength">
+                <arg0   key="statistics.menu_item_name"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="menu_item_seq"
+                    depends="required, mask"
+                    >
+                <arg0   key="statistics.menu_item_seq"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]*$</var-value>
+                </var>
+            </field>
+
+        </form>
+
+
+        <form name="NoticeForm">
+        	<field property="user_nm"
+        		   depends = "required, maxlength">
+        		   <arg0 key="notice.name"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		 resource = "false"/>
+        		   <var>
+        		    	<var-name>maxlength</var-name>
+        		   	 	<var-value>20</var-value>
+        		   </var>
+        	</field>
+        	<field property="writer_email"
+        		   depends = "required,email,maxlength">
+           			<arg0 key="notice.email"/>           
+           			<arg2 name="maxlength" key="${var:maxlength}" resource="false"/>
+           				<var>
+             				<var-name>maxlength</var-name>
+             				<var-value>50</var-value>
+           				</var>
+            </field>
+         	<field property="notice_title"
+        		   depends = "required">
+        		   <arg0 key="notice.title"/>
+           	</field>		  
+        	<field property="user_pwd"
+        		   depends = "required, maxlength">
+        		   <arg0 key="notice.password"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		 resource = "false"/>
+        		   	<var>
+        		   	 	<var-name>maxlength</var-name>
+        		   	 	<var-value>10</var-value>
+        		   </var>
+        	</field>
+        	<field property="user_level"
+        		   depends = "required">
+        		   <arg0 key = "notice.user_level"/>
+            </field>
+            <field property = "notice_tp"
+            	   depends = "required">
+            	   <arg0 key="notice.notice_tp"/>
+            </field>
+        </form>
+        
+        <form name="SttGrpInsertForm">
+        	<field property="menu_group_nm"
+        		   depends="required, maxlength">
+        		   <arg0 key="statgroup.name"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   	<var>
+        		   		<var-name>maxlength</var-name>
+        		   		<var-value>20</var-value>
+        		   	</var>
+        	</field>
+        	<field property="menu_group_img_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+        	<field property="menu_group_img_on_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+        	<field property="menu_group_img_off_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+      </form>
+      <form name="SttGrpUpdateForm">
+      		<field property="menu_group_img_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+        	<field property="menu_group_img_on_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+        	<field property="menu_group_img_off_url"
+        		   depends="required">
+        		   <arg0 key="statgroup.imgurl"/>
+        	</field>
+      </form>
+      <form name="StatTpForm">
+      		<field property="stat_tp_nm"
+      			   depends="required, maxlength">
+      			   <arg0 key="stattp.name"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>24</var-value>
+        		   		</var>
+        	</field>
+        	<field property="admin_url"
+      			   depends="required,maxlength">
+      			   <arg0 key="stattp.adminUrl"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>256</var-value>
+        		   		</var>
+        	</field>
+        	<field property="template"
+      			   depends="required, maxlength">
+      			   <arg0 key="stattp.template"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>256</var-value>
+        		   		</var>
+
+        	</field>
+        	<field property="stat_tp_desc"
+      			   depends="maxlength">
+      			   <arg0 key="stattp.desc"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>500</var-value>
+        		   		</var>
+        	</field>
+			<field property="action_url"
+      			   depends="required, maxlength">
+      			   <arg0 key="stattp.actionUrl"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>256</var-value>
+        		   		</var>
+        	</field>
+        	<field property="modify_url"
+      			   depends="required, maxlength">
+      			   <arg0 key="stattp.modifyUrl"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>256</var-value>
+        		   		</var>
+        	</field>
+      </form>
+      <form name="CfgCodeForm">
+      		<field property="code_category"
+      			   depends="required, maxlength">
+      			   <arg0 key="cfgcode.category"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>40</var-value>
+        		   		</var>
+           	</field>
+           	<field property="code"
+           		   depends="required, mask, maxlength">
+      			   <arg0 key="cfgcode.code"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+           	<field property="name"
+           		   depends="required,maxlength">
+           		   <arg0 key="cfgcode.codeName"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>40</var-value>
+        		   		</var>
+        		   		
+           	</field>
+           	<field property="code_type"
+           		   depends="required, maxlength">
+           		   <arg0 key="cfgcode.codeType"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+          	</field>
+          	<field property="source"
+           		   depends="maxlength">
+           		   <arg0 key="cfgcode.source"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>40</var-value>
+        		   		</var>
+        		   		
+           	</field>
+           	<field property="code_desc"
+           		   depends="maxlength">
+           		   <arg0 key="cfgcode.desc"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>100</var-value>
+        		   		</var>
+        		   		
+           	</field>
+      </form>
+      <form name="CfgStatColumnForm">
+      		<field property="col_name"
+      			   depends="required, mask, maxlength">
+      			   <arg0 key="cfgcol.colName"/>
+      			   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>80</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[a-zA-Z][a-zA-Z_0-9]*$</var-value>
+           				</var>
+           </field>
+           <field property="alias"
+           		  depends="maxlength">
+           		  <arg0 key="cfgcol.alias"/>
+           		  <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>100</var-value>
+        		   		</var>
+        	</field>
+        	<field property="len"
+        		   depends="required,mask,maxlength">
+        		   <arg0 key="cfgcol.len"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>5</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+           </field>
+           <field property="data_type"
+        		   depends="required,minlength">
+        		   <arg0 key="cfgcol.type"/>
+        		   <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                	 <var>
+                    	<var-name>minlength</var-name>
+                    	<var-value>1</var-value>
+                	</var>
+           </field>
+           <field property="format"
+           		  depends="maxlength">
+           		  <arg0 key="cfgcol.format"/>
+           		  <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="special_type"
+           		  depends="required,maxlength">
+           		  <arg0 key="cfgcol.stype"/>
+           		  <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>2</var-value>
+        		   		</var>
+        	</field>
+        </form>
+        <form name="UserTableForm">
+        	<field property="user_id"
+                    depends="required, minlength,maxlength, mask">
+                <arg0   key="usertb.userId"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+                <var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9a-zA-Z]*$</var-value>
+           		</var>
+            </field>
+        	<field property="user_pwd"
+        		   depends="required, minlength,maxlength, mask">
+        		   <arg0 key="usertb.userPwd"/>
+        		   <arg1   key="${var:minlength}" name="minlength"
+                   		resource="false"/>
+	               <arg2   key="${var:maxlength}" name="maxlength"
+                   		resource="false"/>
+        		   	<var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+	                </var>
+	                <var>
+	                    <var-name>minlength</var-name>
+	                    <var-value>4</var-value>
+	                </var>
+	                <var>
+	             		<var-name>mask</var-name>
+	             		<var-value>^[_0-9a-zA-Z]*$</var-value>
+	           		</var>
+        	</field>
+        	<field property="user_name"
+        		   depends="required, maxlength">
+        		   <arg0 key="usertb.userNm"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>10</var-value>
+        		   		</var>
+        	</field>
+        	<field property="user_email"
+        		   depends="email, maxlength">
+        		   <arg0 key="usertb.email"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="user_grp_code"
+        		   depends="mask, maxlength">
+        		   <arg0 key="usertb.grpCode"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>10</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9a-zA-Z]*$</var-value>
+           				</var>
+        	</field>
+        	<field property="user_hp1"
+        		   depends="maxlength">
+        		   <arg0 key="usertb.hp"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        	</field>
+        	<field property="user_tel1"
+        		   depends="maxlength">
+        		   <arg0 key="usertb.tel"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        	</field>
+        	<!--field property="user_hp1"
+        		   depends="mask, maxlength">
+        		   <arg0 key="usertb.hp"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>11</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+        	</field>
+        	<field property="user_tel1"
+        		   depends="mask, maxlength">
+        		   <arg0 key="usertb.tel"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+        	</field-->
+        	<field property="user_co"
+        		   depends="maxlength">
+        		   <arg0 key="usertb.company"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>75</var-value>
+        		   		</var>
+        	</field>
+        	<field property="user_dept"
+        		   depends="maxlength">
+        		   <arg0 key="usertb.dept"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="user_pos"
+        		   depends="maxlength">
+        		   <arg0 key="usertb.posi"/>
+        		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	
+        </form>
+        <form name="PopIdSearchForm">
+        	<field property="user_id"
+                    depends="required, minlength,maxlength, mask">
+                <arg0   key="usertb.userId"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+                <var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9a-zA-Z]*$</var-value>
+           		</var>
+            </field>
+        </form>
+        <form name="CfgCpInfoForm">
+        	<field property="cp_name"
+        		depends="required, maxlength">
+        		<arg0 key="cfgcp.cpNm"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>75</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_owner"
+        		depends="maxlength">
+        		<arg0 key="cfgcp.owner"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_tel"
+        		depends="required, maxlength">
+        		<arg0 key="cfgcp.tel"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_fax"
+        		depends="maxlength">
+        		<arg0 key="cfgcp.fax"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        	</field>
+        	<!--field property="cp_tel"
+        		depends="required, mask, maxlength">
+        		<arg0 key="cfgcp.tel"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[-0-9]*$</var-value>
+           				</var>
+        	</field>
+        	<field property="cp_fax"
+        		depends="mask, maxlength">
+        		<arg0 key="cfgcp.fax"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[-0-9]*$</var-value>
+           				</var>
+        	</field-->
+        	<field property="cp_address"
+        		depends="maxlength">
+        		<arg0 key="cfgcp.addr"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_homepage"
+        		depends="maxlength">
+        		<arg0 key="cfgcp.hompy"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>1000</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_email"
+        		depends="email, maxlength">
+        		<arg0 key="cfgcp.email"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        	</field>
+        	<field property="cp_comment"
+        		depends="maxlength">
+        		<arg0 key="cfgcp.comment"/>
+        		<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>500</var-value>
+        		   		</var>
+        	</field>
+		</form>
+		<form name="CfgCpInfoPop">
+			<field property="cp_code"
+				depends="required, mask, maxlength">
+				<arg0 key="cfgcp.cpCode"/>
+				<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        		 		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[_0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+         </form>
+         <form name="CfgCpChargeForm">
+         	<field property="operator_name"
+         		   depends = "required, maxlength">
+         		   <arg0 key="cfgcharge.Nm"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+           	</field>
+           	<field property="operator_type"
+           			depends="required, maxlength">
+         		   <arg0 key="cfgcharge.type"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>10</var-value>
+        		   		</var>
+           	</field>
+           	<field property="charge_team"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.team"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+           	</field>
+           	<field property="charge_tel"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.tel"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+           	</field>
+           	<field property="charge_hp"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.hp"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+           	</field>
+           	<!--field property="charge_tel"
+           			depends="mask,maxlength">
+         		   <arg0 key="cfgcharge.tel"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+           	</field>
+           	<field property="charge_hp"
+           			depends="mask, maxlength">
+         		   <arg0 key="cfgcharge.hp"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+           	</field-->
+           	<field property="charge_email"
+           			depends="email, maxlength,">
+         		   <arg0 key="cfgcharge.email"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[_0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+           	<field property="charge_position"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.position"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+           	</field>
+           	<field property="charge_memo"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.Desc"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>100</var-value>
+        		   		</var>
+           	</field>
+         </form>
+         <form name="CfgSvcForm">
+         	<field property="svc_code"
+				depends="required, mask, maxlength">
+				<arg0 key="cfgsvc.svcCode"/>
+				<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        		 		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[_0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+         	<field property="name"
+         			depends="required">
+         		<arg0 key="cfgsvc.Nm"/>
+         	</field>
+            <field property = "charge_email"
+            	   depends = "email">
+            	   <arg0 key="cfgsvc.email"/>
+            </field>
+            <field property="charge_tel"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.tel"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+           	</field>
+           	<field property="charge_hp"
+           			depends="maxlength">
+         		   <arg0 key="cfgcharge.hp"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+           	</field>
+            <!--field property="charge_tel"
+           			depends="mask,maxlength">
+         		   <arg0 key="cfgcharge.tel"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+           	</field>
+           	<field property="charge_hp"
+           			depends="mask, maxlength">
+         		   <arg0 key="cfgcharge.hp"/>
+         		   <arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>20</var-value>
+        		   		</var>
+        		   		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[0-9]*$</var-value>
+           				</var>
+           	</field-->
+         </form>
+         <form name="CfgSvcPopForm">
+         	<field property="svc_code"
+				depends="required, mask, maxlength">
+				<arg0 key="cfgsvc.svcCode"/>
+				<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		   		<var>
+        		   			<var-name>maxlength</var-name>
+        		   			<var-value>50</var-value>
+        		   		</var>
+        		 		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[_0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+         </form>
+         <form name="CfgSvcSubForm">
+         	<field property="svc_code"
+				depends="required, mask">
+				<arg0 key="cfgsvc.svcCode"/>
+				<arg2 key="${var:maxlength}" name="maxlength"
+        		   		resource = "false" />
+        		 		<var>
+             				<var-name>mask</var-name>
+             				<var-value>^[_0-9a-zA-Z]*$</var-value>
+           				</var>
+           	</field>
+           	<field property="name"
+				depends="required">
+				<arg0 key="cfgsvc.Nm"/>
+           	</field>
+         </form>
+        <form name="PreStatRuleSearchForm">
+            <field property="platform_cd"
+                    depends="minlength,maxlength"
+                    >                
+                <arg0   key="config.platform_cd"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="service_nm"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="config.service_nm"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>30</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="StatRuleSearchForm">
+            <field property="platform_cd"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="config.platform_cd"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="service_nm"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="config.service_nm"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>30</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="StatRuleInsertForm">
+            <field property="platform"
+                    depends="minlength,maxlength"
+                    >
+                <arg0   key="config.platform"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+
+            <field property="target_table"
+                    depends="required, minlength,maxlength"
+                    >
+                <arg0   key="config.target_table"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>30</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="CfgQmForm">
+        	<field property="qm_value"
+        		   depends = "mask"
+        		   >
+        		<arg0 key="cfgqm.qm_value"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        </form> 
+
+        <form name="ReportTemplateForm">
+            <field property="rept_tmpl_file"
+                    depends="required, minlength,maxlength"
+                    >
+                <arg0   key="report.rept_tmpl_file"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>256</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+            <field property="rept_tmpl_nm"
+                    depends="required, minlength,maxlength"
+                    >
+                <arg0   key="report.rept_tmpl_nm"/>
+                <arg1   key="${var:minlength}" name="minlength"
+                   resource="false"/>
+                <arg2   key="${var:maxlength}" name="maxlength"
+                   resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>20</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+            </field>
+            <field property="rept_prd"
+                    depends="required"
+                    >
+                <arg0   key="report.rept_prd"/>
+            </field>
+        	<field property="start_row"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.start_row"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        	<field property="start_col"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.start_col"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        	<field property="end_row"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.end_row"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        	<field property="end_col"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.end_col"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        	<field property="data_type"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.data_type"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        	<field property="sql"
+        		   depends = "required"
+        		   >
+        		<arg0 key="report.sql"/>
+           	</field>
+        	<field property="sheet_no"
+        		   depends = "required, mask"
+        		   >
+        		<arg0 key="report.sheet_no"/>
+        		<var>
+             		<var-name>mask</var-name>
+             		<var-value>^[_0-9]*$</var-value>
+           		</var>
+           	</field>
+        </form>
+  </formset>   
+</form-validation>

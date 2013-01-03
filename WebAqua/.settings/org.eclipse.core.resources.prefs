@@ -1,0 +1,10 @@
+#Wed May 04 02:35:25 GMT 2011
+eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/struts-config.xml=EUC-KR
+encoding//WebRoot/WEB-INF/web.xml=EUC-KR
+encoding//WebRoot/css/aqua.css=UTF-8
+encoding//WebRoot/css/aqua1.css=euc-kr
+encoding//WebRoot/include/header.jsp=EUC-KR
+encoding//src/log4j.properties=UTF-8
+encoding/<project>=EUC-KR
+encoding/WebRoot=EUC-KR

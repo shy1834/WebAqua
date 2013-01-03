@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ks_c_5601-1987">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Downloading MyBuilder</title>
+</head>
+
+<script language = JavaScript>
+function onopen()
+{
+	//Loader1.LoadEx("Biin");
+	var ret = Loader1.LoadEx("Biin");
+	if (ret == 1) alert("정상적으로 설치 되었습니다.실행페이지로 이동 하십시오.");
+}
+</script>
+
+<BODY bgColor=#ffffff onload ="onopen()">
+
+<p><b><font color="#0000FF" size="4">마이빌더를 새로 설치하거나 변경된 내용을 업데이트합니다...</font></b><br><br>     
+<font color="#008000">마이빌더를 설치하고 나면 샘플파일들을 실행해 볼 수 있습니다.<br>      
+ 화면에 보안경고 대화상자가 표시되면 '예'를 선택 
+하십시오.<br>
+<br>
+  설치는 한번만 하면 되며 약 5~10초 정도 소요됩니다.<br>
+<br>     
+  <br>
+</font>
+<a href="index3.htm">실행화면 가기<br>  
+</a>
+<object classid="clsid:2CB8FCD2-8090-4199-9DC9-3E19C65479B5" id="Loader1" width="0" height="0"  
+  codebase="Biin/mbLoader.cab#version=2,1,1,2"></object>
+<object classid="clsid:3D25ABA1-CAEC-11CF-B34A-00AA00A28331" width="0" height="0">
+  <param name="LPKPath" value="Biin/mbLoader.lpk"></object>
+</p>
+</body>
+</html>

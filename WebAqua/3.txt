@@ -1,0 +1,54 @@
+* from(
+	select
+	substr(date_fld,1,4)||'/'||substr(date_fld,5,2)||'/'||substr(date_fld,7,2) date_fld
+	, data_dev_nm
+	, sum(con_try_cnt) con_try_cnt
+	, sum(suc_cnt) suc_cnt
+	, sum(suc_cnt)/decode(sum(con_try_cnt),0,null,sum(con_try_cnt))*100 suc_rate
+	, sum(suc_sum_tm) / decode(sum(suc_cnt),0,null,sum(suc_cnt)) suc_avg_tm
+	, sum(red_cnt) red_cnt
+	, sum(red_cnt)/decode(sum(suc_cnt),0,null,sum(suc_cnt))*100 red_rate
+	, sum(red_sum_tm)/decode(sum(red_cnt),0,null,sum(red_cnt)) red_avg_tm
+	, sum(suc_cnt)-nvl(sum(before_suc_cnt),0) data_updn_cnt
+	from(
+		select
+		 date_fld
+		 , data_dev_nm
+		, sum(con_try_cnt) con_try_cnt
+		, sum(suc_cnt) suc_cnt
+		, sum(suc_sum_tm) suc_sum_tm
+		, sum(red_cnt) red_cnt
+		, sum(red_sum_tm) red_sum_tm
+		, 0 before_suc_cnt
+		from &tb_nm
+		where date_fld between :from_dt and :to_dt
+		and data_dev = :data_cate
+		  " cdma "
+		 and svc_dev = "svc_dev"
+		 " svc_dev1 "
+		" data_dev_val "
+		group by date_fld, data_dev_nm
+	union all
+		select
+		 to_char(to_date(date_fld,'yyyymmdd')+1,'yyyymmdd') date_fld
+		 , data_dev_nm
+		, 0 con_try_cnt
+		, 0 suc_cnt
+		, 0 suc_sum_tm
+		, 0 red_cnt
+		, 0 red_sum_tm
+		, sum(suc_cnt) before_suc_cnt
+		from &tb_nm
+		where date_fld between to_char(to_date(:from_dt,'yyyymmdd')-1,'yyyymmdd') and to_char(to_date(:to_dt,'yyyymmdd')-1,'yyyymmdd')
+		and data_dev = :data_cate
+		  " cdma "
+		 and svc_dev = "svc_dev"
+		 " svc_dev1 "
+		" data_dev_val "
+		group by date_fld, data_dev_nm
+		)
+	group by date_fld, data_dev_nm
+	order by date_fld desc , suc_cnt desc
+)
+where rownum <= :srh_cnt
+"

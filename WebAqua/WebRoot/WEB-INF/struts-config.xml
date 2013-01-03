@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+	<!--
+		Default configuration file for examples application. Each module also
+		has its own struts-config under: /WEB-INF/$MODULE/ @version $Revision:
+		1.7 $ $Date: 2011/05/04 02:03:16 $
+	-->
+<struts-config>
+	<data-sources />
+
+	<form-beans>
+		<!--
+			form-bean name="menuForm"
+			type="com.ktf.aqua.mgr.menu.common.MenuForm"/
+		-->
+		<!-- Ç°Áú ºÐ¼® Ãâ·Â °ü·Ã -->
+		<form-bean name="mainForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="cmd" type="java.lang.String"
+				initial="" />
+		</form-bean>
+
+		<form-bean name="userInfoForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="cmd" type="java.lang.String"
+				initial="" />
+			<form-property name="userId" type="java.lang.String"
+				initial="" />
+		</form-bean>
+
+		<!-- Report Ãâ·Â °ü·Ã -->
+		<form-bean name="ReportTemplateForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="rept_tmpl_file" type="org.apache.struts.upload.FormFile" />
+			<form-property name="rept_tmpl_nm" type="java.lang.String" />
+			<form-property name="rept_prd" type="java.lang.String" />
+			<form-property name="rept_tmpl_id" type="java.lang.String" />
+			<form-property name="rept_stat_id" type="java.lang.String[]" />
+			<form-property name="start_row" type="java.lang.String[]" />
+			<form-property name="start_col" type="java.lang.String[]" />
+			<form-property name="end_row" type="java.lang.String[]" />
+			<form-property name="end_col" type="java.lang.String[]" />
+			<form-property name="sql" type="java.lang.String[]" />
+			<form-property name="data_type" type="java.lang.String[]" />
+			<form-property name="sheet_no" type="java.lang.String[]" />
+		</form-bean>
+
+		<form-bean name="ParamForm" type="com.ktf.aqua.mgr.menu.form.ParamForm" />
+
+	</form-beans>
+	<global-exceptions>
+		<!-- Ç°Áú ºÐ¼® Ãâ·Â °ü·Ã -->
+		<exception key="ABSTRACT" type="java.lang.Exception" path="/main/error.jsp" />
+	</global-exceptions>
+
+	<global-forwards>
+		<!-- Ç°Áú ºÐ¼® Ãâ·Â °ü·Ã -->
+		<forward name="logoff" path="/login/login.jsp" />
+		<forward name="logon" path="/login/logout.jsp" />
+		<forward name="sessionError" path="/login/UserAuthCheck.jsp" />		
+	</global-forwards>
+
+	<action-mappings>
+		<!-- test  -->
+		<action path="/test" type="test.Test1" scope="request">
+			<forward name="success" path="/test2.jsp" redirect="false" />
+		</action>
+	
+		<action path="/webError404" forward="/error/error.jsp?code=404" />
+		<action path="/webError500" forward="/error/error.jsp?code=500" />
+		
+		<!-- ·Î±×ÀÎ -->
+		<action path="/login" type="com.ktf.aqua.user.action.UserLoginAction" name="mainForm" parameter="cmd" scope="request" validate="false">
+			<forward name="login" path="/login/login.jsp" redirect="false" />
+			<forward name="authority" path="/login/UserAuthCheck.jsp" redirect="false" />
+			<forward name="success" path="/mainPage.do" redirect="true" />
+			<!-- <forward name="success" path="/mainPage.docmd=default" redirect="true" /> -->
+			<forward name="notAllowed" path="/login_error.jsp" redirect="false" />
+			<forward name="restrict" path="/login_restrict.jsp" redirect="false" />
+		</action>
+		
+		<!-- Ç°Áú ºÐ¼® ¾×¼Ç -->
+		<!-- reload -->
+		<action path="/reload" type="com.ktf.aqua.action.ReloadStrutsConfigAction">
+		</action>
+		
+		<!-- »ó´Ü¸Þ´º -->
+		<action path="/topMenu" type="com.ktf.aqua.mgr.menu.action.TopMenuAction">
+			<forward name="success" path="/include/header.jsp" redirect="false" />
+		</action>
+		
+		<!-- ¸ÞÀÎÆäÀÌÁö -->
+		<action path="/mainPage" type="com.ktf.aqua.mgr.menu.action.MainPageAction">
+			<forward name="default" path="/main.jsp" redirect="false" />
+			<forward name="default_cp" path="/cp/admin/main.jsp" redirect="false" />			
+		</action>
+		
+		<!-- ¸ÞÀÎ¸Þ´º -->
+		<action path="/menu" name="ParamForm" type="com.ktf.aqua.mgr.menu.action.MenuListAction">
+			<forward name="success" path="/include/common_result.jsp" redirect="false" />
+		</action>
+
+		<!-- 1Â÷¿É¼Ç°Ë»ö -->
+		<action path="/searchOpt" name="ParamForm" type="com.ktf.aqua.mgr.menu.action.SearchOptionAction" scope="request">
+			<forward name="success" path="/include/search_options.jsp" redirect="false" />
+		</action>
+
+		<!-- ³¯Â¥Çü½Ä °Ë»ö -->
+		<action path="/searchDate" type="com.ktf.aqua.mgr.menu.action.SearchDateAction"
+			scope="request">
+			<forward name="success" path="/include/search_date.jsp"
+				redirect="false" />
+		</action>
+
+		<!-- mvf file °Ë»ö -->
+		<action path="/searchMvf" type="com.ktf.aqua.mgr.menu.action.SearchMvfAction">
+			<forward name="success" path="/include/search_mvf.jsp" redirect="false" />
+		</action>		
+
+		<!-- »ç¾÷ÆÀ-->
+		<action path="/workteam" type="com.ktf.aqua.mgr.menu.action.WorkTeamAction">
+			<forward name="success" path="/workteam/main.jsp" redirect="false" />
+		</action>
+		
+		<!-- °ü¸®ÆäÀÌÁö -->
+		<action path="/adminMenu" forward="/admin/admin_mng.jsp" />
+		<action path="/noticeBoard" forward="/admin/admin_mng.jsp" />
+		<action path="/userBoard" forward="/admin/admin_mng.jsp" />
+		<action path="/userInfoView" type="com.ktf.aqua.user.action.UserInfoViewAction">
+			<forward name="bbsInfo" path="/board/view_pop.jsp" redirect="false" />
+		</action>
+
+		<action path="/boardInfo" type="com.ktf.aqua.user.action.BbsInfoAction">
+			<forward name="bbsInfo" path="/board/view_pop.jsp" redirect="false" />
+		</action>
+		
+		<!-- °³ÀÎÁ¤º¸º¸±â -->
+		<action path="/userInfoView" forward="/admin/user_info.jsp" />
+		
+		<!-- °øÁö»çÇ×¸®½ºÆ®º¸±â -->
+		<action path="/noticeListView" forward="/admin/notice_list.jsp" />
+		
+		<!-- °øÁö»çÇ× »ó¼¼º¸±â -->
+		<action path="/noticeView" forward="/pop_notice.jsp" />
+		
+		<!-- °ü¸®ÀÚÈ­¸é  -->
+		<action path="/adminPage" type="com.ktf.aqua.mgr.menu.action.AdminPageAction"
+			scope="request">
+			<forward name="success" path="/admin/admin_page.jsp" redirect="false" />
+		</action>
+		
+		
+		<!-- »ç¿ëÀÚ°ü¸®  -->		
+		
+		<action path="/userInfo" type="com.ktf.aqua.user.action.UserInfoAction">
+			<forward name="userInfo" path="/admin/user_info.jsp" redirect="false" />
+			<forward name="userView" path="/admin/user_view.jsp"
+				redirect="false" />
+			<forward name="userEdit" path="/admin/user_edit.jsp"
+				redirect="false" />
+			<forward name="userEdit1" path="/admin/user_edit.jsp"
+				redirect="false" />
+			<forward name="userDelete" path="/admin/user_delete.jsp"
+				redirect="false" />
+			<forward name="userSearch" path="/admin/user_search.jsp"
+				redirect="false" />
+			<forward name="userList" path="/admin/user.jsp" redirect="false" />
+			<forward name="menuList" path="/admin/menu.jsp" redirect="false" />
+			<forward name="adminList" path="/admin/admin.jsp" redirect="false" />
+			<forward name="dataMstList" path="/admin/data_mst.jsp"
+				redirect="false" />
+			<forward name="svcMstList" path="/admin/svc_mst.jsp"
+				redirect="false" />
+			<forward name="errMstList" path="/admin/err_mst.jsp"
+				redirect="false" />
+			<forward name="pmMstList" path="/admin/pm_mst.jsp" redirect="false" />
+			<forward name="regPopList" path="/admin/reg_pop.jsp"
+				redirect="false" />
+			<forward name="userLog" path="/admin/user_log.jsp" redirect="false" />
+			<forward name="gongjiBoard" path="/board/gongji_list.jsp"
+				redirect="false" />
+			<forward name="userBoard" path="/board/user_list.jsp"
+				redirect="false" />
+		</action>
+
+		<!-- Report ¾×¼Ç -->
+		<action path="/daily_report/rept_tmpl_inquiry" type="com.ktf.iss.report.ReportTemplateInquiry_ACT"
+			validate="false" scope="request">
+			<forward name="ReptTmplInquiry" path="/daily_report/rept_tmpl_inquiry.jsp"
+				redirect="false" />
+		</action>
+		
+		<!-- º¸°í¼­ ¾ç½Ä°ü¸®È­¸é -->
+		<action path="/daily_report/rept_tmpl_inquiry_cus" type="com.ktf.iss.report.ReportTemplateInquiry_ACT"
+			validate="false" scope="request">
+			<forward name="ReptTmplInquiry" path="/daily_report/rept_tmpl_inquiry_cus.jsp" redirect="false" />
+		</action>
+		<action path="/daily_report/rept_tmpl_regform" forward="/daily_report/rept_tmpl_regform.jsp" />
+
+		<action path="/daily_report/rept_tmpl_register" type="com.ktf.iss.report.ReportTemplateCreate_ACT"
+			name="ReportTemplateForm" validate="false" scope="request">
+			<forward name="ReptTmplInquiry" path="/daily_report/rept_tmpl_inquiry.do"
+				redirect="true" />
+		</action>
+		<action path="/daily_report/rept_tmpl_delete" type="com.ktf.iss.report.ReportTemplateDelete_ACT"
+			validate="false" scope="request">
+			<forward name="ReptTmplInquiry" path="/daily_report/rept_tmpl_inquiry.do"
+				redirect="true" />
+		</action>
+		<action path="/daily_report/rept_tmpl_modform" type="com.ktf.iss.report.ReportTemplateModifyForm_ACT"
+			name="ReportTemplateForm" validate="false" scope="request">
+			<forward name="ReptTmplModify" path="/daily_report/rept_tmpl_modform.jsp"
+				redirect="false" />
+		</action>
+		<action path="/daily_report/rept_tmpl_modify" type="com.ktf.iss.report.ReportTemplateModify_ACT"
+			name="ReportTemplateForm" validate="false" scope="request">
+			<forward name="ReptTmplInquiry" path="/daily_report/rept_tmpl_inquiry.do"
+				redirect="true" />
+		</action>
+		<action path="/daily_report/rept_create_form" type="com.ktf.iss.report.ReportCreateForm_ACT"
+			validate="false" scope="request">
+			<forward name="ReptCreate" path="/daily_report/rept_create_form.jsp"
+				redirect="false" />
+		</action>
+		<action path="/daily_report/rept_create_form_cus" type="com.ktf.iss.report.ReportCreateForm_ACT"
+			validate="false" scope="request">
+			<forward name="ReptCreate" path="/daily_report/rept_create_form_cus.jsp"
+				redirect="false" />
+		</action>
+		<action path="/daily_report/rept_create" type="com.ktf.iss.report.ReportCreate_ACT"
+			validate="false" scope="request">
+			<forward name="ReptInquiry" path="/daily_report/rept_inquiry.do"
+				redirect="true" />
+		</action>
+		<action path="/daily_report/rept_create_cus" type="com.ktf.iss.report.ReportCreate_ACT"
+			validate="false" scope="request">
+			<forward name="ReptInquiry" path="/daily_report/rept_inquiry_cus.do"
+				redirect="true" />
+		</action>
+		<action path="/daily_report/rept_delete" type="com.ktf.iss.report.ReportDelete_ACT"
+			validate="false" scope="request">
+			<forward name="ReptInquiry" path="/daily_report/rept_inquiry.do"
+				redirect="true" />
+		</action>
+
+		<!-- º¸°í¼­ ´Ù¿î·Îµå -->
+		<action path="/daily_report/rept_download" forward="/daily_report/rept_download.jsp" />
+
+		<action path="/daily_report/rept_inquiry" type="com.ktf.iss.report.ReportInquiry_ACT"
+			validate="false" scope="request">
+			<forward name="ReptInquiry" path="/daily_report/rept_inquiry.jsp"
+				redirect="false" />
+		</action>
+		<action path="/daily_report/rept_inquiry_cus" type="com.ktf.iss.report.ReportInquiry_ACT"
+			validate="false" scope="request">
+			<forward name="ReptInquiry" path="/daily_report/rept_inquiry_cus.jsp"
+				redirect="false" />
+		</action>
+		<action path="/daily_report/pop_table_inquiry" type="com.ktf.iss.report.TableInquiry_ACT"
+			name="TableSearchForm" validate="false" scope="request">
+			<forward name="TableInquiry" path="/daily_report/pop_table_inquiry.jsp"
+				redirect="false" />
+		</action>
+
+	</action-mappings>
+
+
+	<message-resources parameter="MessageResources" />
+	<message-resources parameter="title" />
+	<message-resources null="false"
+		parameter="com.ktf.iss.ApplicationResources" />
+	<!--
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,/WEB-INF/validator.xml"/>
+		</plug-in>
+	-->
+
+</struts-config>

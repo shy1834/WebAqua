@@ -1,0 +1,78 @@
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=ks_c_5601-1987">
+<META content="Microsoft FrontPage 5.0" name=GENERATOR>
+<STYLE></STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=ks_c_5601-1987">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Component</title>
+</HEAD>
+
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function View1_OnRowSelected(id)
+{
+	//alert(View1.Text("List.cst_code") + " / " + View1.Text("List.cst_name"));
+}
+
+//-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE=javascript FOR=View1 EVENT=OnRowSelected>
+<!--
+//	View1_OnRowSelected(arguments[0]);
+-->
+</SCRIPT>
+
+<script language = JavaScript>
+
+function OnOpen()
+{
+	var	fileName = file_name.value;
+	
+	if ( fileName.length <= 0 )
+	{
+		alert("Enter File Name");
+		btn.focus();
+		btn.select();
+	}
+	else
+	{
+		View1.FileName = fileName;
+		View1.Embed = false;
+		//View1.ToolBar = false;
+		View1.StatusBar = false;
+		View1.Run();
+	}
+}
+
+function OnCommand()
+{
+	// 사용가능한 명령
+	// INSERT:추가, MODIFY:수정, DELETE:삭제, UPDATE:확인,
+	// BUILD:작성, COPY:복사, PASTE:붙이기,
+	// PREVIEW:미리보기, PRINT:인쇄, MAIL:메일보내기, EXCEL:엑셀로 보내기,
+	// FIRST:첫쪽, LAST:끝쪽, PREV:이전쪽, NEXT:다음쪽,
+	// FIT:전체보기, NORMAL:표준보기, ZOOMIN:확대, ZOOMOUT: 축소
+	// USER1~9:사용자정의
+	View1.Command(cmd.value);
+}
+</script>
+
+<BODY bgColor=#ffffff>
+<input type=button value="view1" 
+
+onclick="javascript:self.location='http://localhost:2000/index.htm';"
+<p align="center">
+<center>
+<br>
+File Name: <input id = 'file_name' value = "View1" size="20">&nbsp;
+<input type="button" value="Open" onclick = OnOpen()>&nbsp;&nbsp;
+Command: <input id = 'cmd' value = "Update" size="20">&nbsp;
+<input type="button" value="Run" onclick = OnCommand()>
+ 
+ <object classid="clsid:5DCB714F-3509-11D6-9C7C-00E029904B7D" id="View1" width="997" height="605" align="center">   </object> 
+</center>
+</BODY>
+</HTML>

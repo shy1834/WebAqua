@@ -1,0 +1,10 @@
+-----------
+select table_name
+  from user_tables
+  order by table_name
+*** Elapsed: 0.521 sec ***
+-----------
+select view_name
+  from user_views
+  order by view_name
+*** Elapsed: 0.080 sec ***

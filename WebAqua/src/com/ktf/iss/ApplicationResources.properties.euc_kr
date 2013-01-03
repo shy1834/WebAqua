@@ -1,0 +1,27 @@
+# Resources for parameter 'com.ktf.iss.ApplicationResources'
+# Project P/ISS
+# 명령어 : native2ascii ApplicationResources.properties.euc_kr ApplicationResources.properties
+index.title=:::::::: KTF 통합통계시스템 ::::::::
+login.user_id=아이디
+login.user_pwd=비밀번호
+
+statistics.page_nm=제목
+statistics.stat_tp=통계유형
+statistics.table_name=통계데이타
+
+errors.required={0}을(를) 입력하세요
+errors.minlength={0}은(는) 최소 {1}글자 이상 입력하셔야 합니다.
+errors.maxlength={0}은(는) 최대 {2}글자까지 입력하실 수 있습니다.
+errors.invalid={0}은(는) 유효하지 않습니다.
+   
+errors.byte={0} must be an byte.
+errors.short={0} must be an short.
+errors.integer={0} must be an integer.
+errors.long={0} must be an long.
+errors.float={0} must be an float.
+errors.double={0} must be an double.
+   
+errors.date={0} is not a date.
+errors.range={0} is not in the range {1} through {2}.
+errors.creditcard={0} is not a valid credit card number.
+errors.email={0} is an invalid e-mail address.

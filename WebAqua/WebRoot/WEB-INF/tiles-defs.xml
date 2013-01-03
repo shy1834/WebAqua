@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+ "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+   <!-- ======================================================= -->
+   <!-- Master definition  		                        -->
+   <!-- ======================================================= -->
+
+   <!-- Master layout and default tiles used by all pages -->
+   <definition name="aqua.main.page" path="/frame/index.jsp">
+      <put name="top" value="/frame/top.jsp" /> 
+      <put name="left"  value="/frame/left.jsp" />           
+      <put name="body"   value="" />
+   </definition>
+
+   <!-- Developer Definition Area -->
+
+   <!-- /user.do
+   <definition name="asep.user.registerForm" extends="asep.pageLayout">
+      <put name="body"   value="/front/user/register_form.jsp" />
+   </definition>
+   -->
+</tiles-definitions>

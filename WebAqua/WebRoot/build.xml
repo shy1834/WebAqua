@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<project name="KLAOWEB" default="web" basedir=".">
+<property environment="env"/>
+	<target name="web">
+		<echo>변경된 Web Resources를 웹로직 환경에 반영합니다.</echo>
+        <copy todir="C:\Apache\Tomcat4.1\webapps\WebAqua" preservelastmodified="true" verbose="true">
+			<fileset dir="${basedir}\">
+                <include name="**/*.jsp"/>
+                <include name="**/*.js"/>
+				<include name="**/*.css"/>
+				<include name="**/*.htc"/>
+                <include name="**/*.class"/>
+				<include name="**/*.xml"/>
+				<include name="**/*.tld"/>
+				<include name="**/*.jar"/>
+				<include name="**/*.properties"/>
+				<include name="**/*.gif"/>
+				<include name="**/*.html"/>
+				<include name="**/*.htm"/>	
+				<include name="**/*.swf"/>				
+			</fileset>
+		</copy>
+		<echo>${basedir}의 파일중 변경된 파일 들을 복사완료했음.</echo>
+	
+		<echo>변경된 Web Resources를 웹로직 환경에 반영합니다.</echo>
+        <copy todir="C:\Apache\Tomcat4.1\webapps\WebAqua\WEB-INF\classes" preservelastmodified="true" verbose="true">
+			<fileset dir="${basedir}\WEB-INF\classes">                
+                <include name="**/*.class"/>
+			</fileset>
+		</copy>
+		<echo>bin의 파일중 변경된 파일 들을 복사완료했음.</echo>
+	</target>
+</project>

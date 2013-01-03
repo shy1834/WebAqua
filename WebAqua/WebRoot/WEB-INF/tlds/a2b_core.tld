@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+   <tlib-version>1.0</tlib-version>
+   <jsp-version>1.2</jsp-version>
+   <short-name>a2b_core</short-name>
+   <description>Custom JSP Tag Library that supports core A2B features. 
+   </description>
+   <tag>
+      <name>help</name>
+      <tag-class>com.questra.a2b.ui.taglibs.core.HelpTag</tag-class>
+      <body-content>empty</body-content>
+      <description>
+      Set HelpContext session variable to helpId.
+      </description>
+      <attribute>
+         <name>helpId</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+   <tag>
+      <name>formatDisplayValue</name>
+      <tag-class>com.questra.a2b.ui.taglibs.core.FormatDisplayValueTag</tag-class>
+      <body-content>empty</body-content>
+      <description>
+      Format property display value depending on data type and precision.
+      </description>
+      <attribute>
+         <name>dataValue</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>dataTypeId</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>precision</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+   <tag>
+      <name>setupLicenses</name>
+      <tag-class>com.questra.a2b.ui.taglibs.core.LicensesTag</tag-class>
+      <body-content>empty</body-content>
+      <description>
+      Retrieve com.questra.a2b.common.bizcomp.license.Licenses object and save it in the session.
+      </description>
+    </tag>
+   <tag>
+      <name>permissionCheck</name>
+      <tag-class>com.questra.a2b.ui.taglibs.core.PermissionCheckTag</tag-class>
+      <body-content>empty</body-content>
+      <description>
+      Check if the user has the given permission.
+      </description>
+      <attribute>
+         <name>permissionName</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>msgTitle</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>msgId</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>forwardUrl</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+   <tag>
+      <name>permissionChoices</name>
+      <tag-class>com.questra.a2b.ui.taglibs.core.PermissionChoicesTag</tag-class>
+      <body-content>empty</body-content>
+      <description>
+      Check if the user has the given permission.
+      </description>
+      <attribute>
+         <name>permissionNames</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>msgTitle</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <name>forwardUrl</name>
+         <required>false</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+</taglib>

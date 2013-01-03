@@ -1,0 +1,20 @@
+[Setup]
+;마이빌더가 설치될 클라이언트의 폴더(default: Program Files\MyBuilder).
+;드라이브를 생략하면 Windows가 설치된 드라이브에 설치됨
+
+HomeDir=Program Files\Mybuilder
+
+[Program]
+{HomeDir}\Bin\MyForm.dll=3018752;6.2.30.76
+{HomeDir}\Bin\RunView.dll*=313144;6.2.25.26
+{HomeDir}\Bin\RunView.gif=2594;20110305:150220
+{HomeDir}\Bin\gdiplus.dll=1645320;5.1.3102.1360
+{HomeDir}\Bin\mbImage.dll=348160;1.0.1.0
+{HomeDir}\Bin\ChartFX.ClientServer.Core.dll*=2681344;6.2.2054.16427
+{HomeDir}\Bin\CodeLib.dll=208896;1.0.1.1
+{HomeDir}\Data\MyForm.inf
+{HomeDir}\ReceiveFile.exe=131160;1.0.1.1
+{HomeDir}\MSVCRTD.DLL=385100;6.0.8168.0
+{HomeDir}\MFC42D.DLL=962612;6.0.9782.0
+{HomeDir}\MFCN42D.DLL=41013;6.0.8168.0
+{HomeDir}\MFCO42D.DLL=798773;6.0.8168.0

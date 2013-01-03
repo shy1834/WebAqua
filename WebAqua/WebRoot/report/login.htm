@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>AQUA에 오신것을 환영합니다</title>
+<link rel="stylesheet" href="css/aqua.css" type="text/css">
+<script language="JavaScript">
+
+function onopen()
+{
+
+
+		var ret = Loader1.LoadEx("Biin");
+		if (ret == 1) alert("정상적으로 설치 되었습니다.");
+	}
+}
+
+ function chkLogin(){
+	var f = document.login;
+	var usrid = f.ID.value; 
+	var usrpd = f.PASSWORD.value; 
+	
+    if(usrid == ""){
+        alert('아이디를입력하세요');
+        f.ID.focus();//아무런 value도 보내지 않는다 & 해당칸에 커서 보낸다
+        return;
+	}
+
+    if(usrpd == ""){
+        alert('비밀번호를 입력하세요');
+         f.PASSWORD.focus();//아무런 value도 보내지 않는다 & 해당칸에 커서 보낸다
+        return;
+    } 	 
+	
+	var url;
+
+	if(usrid == "admin") {
+	  url = "/welcome.do?cmd=goMain?userId="+usrid;
+	  
+	} else {
+	  url = "<%=SSO_REQUEST_URL%>/login.do?cmd=authority";
+	}	
+
+	f.action = url;	
+	f.submit();	
+}
+
+
+
+</script>
+	
+</head>
+</head>
+<body topmargin="76" onload="onopen();">
+
+<object classid="clsid:2CB8FCD2-8090-4199-9DC9-3E19C65479B5" id="Loader1" width="0" height="0"
+  codebase="Biin/mbLoader.cab#version=2,1,1,2"></object>
+<object classid="clsid:3D25ABA1-CAEC-11CF-B34A-00AA00A28331" width="0" height="0">
+  <param name="LPKPath" value="Biin/mbLoader.lpk"></object>
+<form name="login" method="POST">
+
+<!-- mybuilder viewer activex설치 관련 -->
+
+<!-- mybuilder viewer activex설치 관련 -->
+
+<table width="665" height='476' border="0" align="center" cellpadding="0" cellspacing="0" background='img/login/login_bg_1.gif'>
+<tr>	
+  <td width="310" height="323">
+    <table width="310" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="39">&nbsp;</td>
+      <td width="271" height="155">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+            <td height="157"> <table width="271" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                  <td width="74"><img src="../img/login/login_id.gif"></td>
+                  <td width="197" height="30"><input type="text" name="ID" size="12" style="border:1px solid black;width:70%" onKeyUp="if(event.keyCode == 13) document.login.PASSWORD.focus();"> 
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="74"><img src="../img/login/login_pass.gif"></td>
+                  <td width="197" height="30"><input name="PASSWORD" type="password" style="border:1px solid black;width:70%" onKeyUp="if(event.keyCode == 13) chkLogin();" value="" size="12"> 
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="74">&nbsp;</td>
+                  <td width="197" height="30"><a href='javascript:chkLogin();'><img src="../img/login/login_id_sure_1.gif" alt="확인" border="0" style="cursor:hand"></a> 
+                    <a href="<%=SSO_JOIN_PAGE%>"><img src="../img/login/login_id_register_1.gif" alt="사용등록" hspace="5" border="0" style="cursor:hand"></a></td>
+                </tr>
+              </table></tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td height="98">&nbsp;</td>
+    </tr>
+    </table>
+  </td>
+  <td width=355></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

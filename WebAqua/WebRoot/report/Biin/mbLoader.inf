@@ -1,0 +1,12 @@
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[Add.Code]
+mbLoader.ocx=mbLoader.ocx
+
+[mbLoader.ocx]
+file-win32-x86=thiscab
+clsid={2CB8FCD2-8090-4199-9DC9-3E19C65479B5}
+FileVersion=3,0,0,2
+RegisterServer=yes
